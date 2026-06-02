@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+# Sample data
+data = {
+    'Age': [12, 15, 18, 21, 25, 30, 35, 40, 45, 50, 55]
+}
+df = pd.DataFrame(data)
+# Histogram
+plt.hist(df['Age'], bins=5)
+plt.title("Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+plt.show()
