@@ -1,0 +1,21 @@
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import pandas as pd
+# Sample Data
+data = {
+    'Age': [25, 35, 45, 20, 30, 50, 23, 40],
+    'Income': [30000, 50000, 70000, 20000, 45000, 80000, 25000, 65000],
+    'Purchased': [0, 1, 1, 0, 1, 1, 0, 1]
+}
+df = pd.DataFrame(data)
+X = df[['Age', 'Income']]
+y = df['Purchased']
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print("Predictions:", y_pred)
+print("Accuracy:", accuracy_score(y_test, y_pred))
