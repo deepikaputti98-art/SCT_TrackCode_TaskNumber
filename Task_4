@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample Accident Data
+data = {
+    'Weather': ['Sunny', 'Rainy', 'Foggy', 'Sunny', 'Rainy', 'Sunny'],
+    'RoadCondition': ['Dry', 'Wet', 'Wet', 'Dry', 'Wet', 'Dry'],
+    'Accidents': [15, 30, 20, 18, 35, 12]
+}
+df = pd.DataFrame(data)
+print(df)
+# Weather Analysis
+df.groupby('Weather')['Accidents'].sum().plot(kind='bar')
+plt.title("Accidents by Weather")
+plt.xlabel("Weather")
+plt.ylabel("Number of Accidents")
+plt.show()
+# Road Condition Analysis
+df.groupby('RoadCondition')['Accidents'].sum().plot(kind='bar')
+plt.title("Accidents by Road Condition")
+plt.xlabel("Road Condition")
+plt.ylabel("Number of Accidents")
+plt.show()
+print("Traffic Accident Analysis Completed")
